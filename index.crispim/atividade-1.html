@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas-vindas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo!</h1>
+        <div id="form-container">
+            <label for="name">Digite seu nome:</label>
+            <input type="text" id="name" name="name" required>
+            <button onclick="mostrarMensagem()">Enviar</button>
+        </div>
+        <div id="message" class="hidden"></div>
+    </div>
+
+    <script>
+        function mostrarMensagem() {
+            // Obter o valor do campo de texto
+            var nome = document.getElementById('name').value;
+
+            // Verificar se o campo não está vazio
+            if (nome.trim() !== '') {
+                // Mostrar a mensagem de boas-vindas
+                var mensagemDiv = document.getElementById('message');
+                mensagemDiv.innerHTML = '<h2>Bem-vindo, ' + nome + '!</h2>';
+                mensagemDiv.classList.remove('hidden');
+                
+                // Ocultar o formulário
+                document.getElementById('form-container').classList.add('hidden');
+            } else {
+                alert('Por favor, digite seu nome.');
+            }
+        }
+    </script>
+</body>
+</html>

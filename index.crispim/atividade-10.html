@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão de Metros para Léguas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversão de Metros para Léguas</h1>
+        <label for="metros">Digite a distância em metros:</label>
+        <input type="number" id="metros" name="metros" step="any" required>
+        <button onclick="converterParaLeguas()">Converter</button>
+        <div id="resultado" class="hidden"></div>
+    </div>
+
+    <script>
+        function converterParaLeguas() {
+            // Obter o valor do campo de entrada
+            var metros = parseFloat(document.getElementById('metros').value);
+            
+            // Verificar se o valor é um número
+            if (!isNaN(metros) && metros >= 0) {
+                // Definir a conversão: 1 légua = 5.556 metros
+                var metrosPorLegua = 5556;
+                
+                // Converter metros para léguas
+                var leguas = metros / metrosPorLegua;
+                
+                // Mostrar o resultado
+                var resultadoDiv = document.getElementById('resultado');
+                resultadoDiv.innerHTML = '<h2>' + metros + ' metros é igual a ' + leguas.toFixed(4) + ' léguas.</h2>';
+                resultadoDiv.classList.remove('hidden');
+            } else {
+                alert('Por favor, insira um valor numérico válido para a distância em metros.');
+            }
+        }
+    </script>
+</body>
+</html>
